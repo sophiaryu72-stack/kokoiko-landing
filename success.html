@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お申し込み完了 ｜ ここいこ</title>
+<meta name="description" content="お申し込みを受け付けました">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="お申し込み完了 ｜ ここいこ">
+<meta property="og:description" content="お申し込みを受け付けました">
+<meta property="og:image" content="img/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>テストモード（実際の請求は発生しません）</div>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="ここいこ トップへ"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  
+</header>
+<main>
+<section class="sec" id="loading" style="text-align:center;padding:60px 18px">
+  <div class="spinner"></div><p class="muted" style="margin-top:14px">お支払いを確認しています…</p>
+</section>
+
+<div id="done" class="hidden">
+<section class="sec stack">
+  <div class="result-icon">✓</div>
+  <h1 style="font-size:22px">お申し込みを受け付けました</h1>
+  <p style="font-weight:700">※ まだ出発確定ではありません（仮予約）</p>
+  <p class="small muted">同じ日に10名集まった時点で出発が確定し、LINEでお知らせします。</p>
+</section>
+<section class="sec tint">
+  <h2 style="font-size:17px;margin-bottom:10px">ご予約内容</h2>
+  <dl class="kv" id="summary"></dl>
+</section>
+<section class="sec hidden" id="demo-box">
+  <div class="box strong"><p class="small"><strong id="demo-text"></strong> <span class="muted">（デモ表示）</span></p></div>
+</section>
+<section class="sec">
+  <h2 style="font-size:17px;margin-bottom:10px">このあとの流れ</h2>
+  <ol style="padding-left:20px;margin:0" class="stack small">
+    <li>LINEで「ここいこ」を友だち追加してください。</li>
+    <li>出発3日前までに、出発確定または中止をLINEでお知らせします。集合場所の詳細も、このときにご案内します。</li>
+    <li>中止の場合は、お支払い額を全額返金します（お手続きは不要です）。</li>
+  </ol>
+  <a class="btn line" href="#" id="line-add" style="margin-top:18px">LINEで友だち追加</a>
+  <p class="small muted" style="margin-top:6px;text-align:center">LINE公式アカウントは準備中です</p>
+  <a class="btn sub" href="index.html" style="margin-top:10px">トップへ戻る</a>
+</section>
+</div>
+
+<section class="sec hidden stack" id="ng">
+  <div class="result-icon ng">!</div>
+  <h1 style="font-size:20px">お支払いを完了できませんでした</h1>
+  <div class="error-box" id="ng-msg"></div>
+  <p class="small">料金は請求されていません。お手数ですが、もう一度お試しください。</p>
+  <a class="btn" href="#" id="retry">お申し込み画面へ戻る</a>
+</section>
+</main>
+</div>
+<script src="js/common.js"></script>
+<script src="js/success.js"></script>
+</body>
+</html>

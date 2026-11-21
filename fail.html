@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お支払いエラー ｜ ここいこ</title>
+<meta name="description" content="お支払いが完了しませんでした">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="お支払いエラー ｜ ここいこ">
+<meta property="og:description" content="お支払いが完了しませんでした">
+<meta property="og:image" content="img/ogp.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>テストモード（実際の請求は発生しません）</div>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="ここいこ トップへ"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  
+</header>
+<main>
+<section class="sec stack">
+  <div class="result-icon ng">!</div>
+  <h1 style="font-size:20px">お支払いが完了しませんでした</h1>
+  <p>お申し込みはまだ受け付けていません。料金は請求されていません。</p>
+  <div class="error-box"><p id="f-msg">お支払いが中断されました。</p><p class="small" id="f-code" style="margin-top:4px"></p></div>
+  <a class="btn" href="#" id="retry">もう一度お支払いへ</a>
+  <a class="btn sub" href="index.html">トップへ戻る</a>
+</section>
+</main>
+</div>
+<script src="js/common.js"></script>
+<script src="js/fail.js"></script>
+</body>
+</html>
