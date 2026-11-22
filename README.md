@@ -2,6 +2,8 @@
 
 정적 HTML + Vercel 서버리스 함수(`/api`) 구조. 토스페이먼츠 SDK v2 주문서형(위젯) 테스트 결제.
 
+언어: 일본어(기본, `/`) · 영어(`/en/`) · 한국어(`/ko/`). 페이지 맨 위 언어 바에서 같은 페이지의 다른 언어로 이동. 문구는 `tools/content.py`에서 고치고 `python3 tools/build.py`로 세 언어를 한 번에 재생성.
+
 ## 파일 구조
 
 | 파일 | 역할 |
@@ -17,7 +19,9 @@
 | `api/confirm.js` | 금액 검증 → 토스 승인 요청 (시크릿 키는 여기서만 사용) |
 | `api/rate.js` | KRW→JPY 당일 환율 (참고 표시용) |
 | `api/_lib.js` | 가격표 · 주문번호 서명 (DB 없이 금액 위조 방지) |
+| `tools/content.py` | 화면 문구 (ja/en/ko) |
 | `tools/build.py` | HTML 생성 스크립트 (문구 수정 후 `python3 tools/build.py`) |
+| `en/` `ko/` | 영어·한국어 페이지 (생성물) |
 | `tools/dev-server.js` | 로컬 확인용 서버 |
 
 ## 로컬에서 보기

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking | KOKOIKO</title>
+<meta name="description" content="Booking | KOKOIKO">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="Booking | KOKOIKO">
+<meta property="og:description" content="Booking | KOKOIKO">
+<meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/checkout.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/checkout.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/checkout.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/checkout.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="robots" content="noindex">
+<script src="https://js.tosspayments.com/v2/standard"></script>
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>Test mode (no actual charges)</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/checkout.html" lang="ja" hreflang="ja" data-lang="ja">日本語</a><a href="/en/checkout.html" lang="en" hreflang="en" data-lang="en" aria-current="true">English</a><a href="/ko/checkout.html" lang="ko" hreflang="ko" data-lang="ko">한국어</a></nav>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="KOKOIKO home"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  <a class="header-link" href="javascript:history.back()">‹ Back</a>
+</header>
+<main>
+<section class="sec tint">
+  <p class="small muted">Your tour</p>
+  <h1 id="co-name" style="font-size:16px;margin-top:2px"></h1>
+  <p class="small" style="margin-top:4px"><span id="co-unit"></span> / person (free under 2)</p>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">① Choose a date</h2>
+  <div id="suggest-wrap" class="hidden">
+    <p class="small" style="font-weight:700;margin-bottom:8px">Dates close to confirmation <span class="muted" style="font-weight:400">(demo)</span></p>
+    <div class="date-cards" id="suggest"></div>
+    <p class="small muted" style="margin:12px 0 8px">Or pick any date from the calendar.</p>
+  </div>
+  <div class="cal" id="cal"></div>
+  <p class="small muted" style="margin-top:8px">Bookings close 4 days before departure. No tours on Korean public holidays.</p>
+  <p class="small" id="date-picked" style="margin-top:8px;font-weight:700"></p>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">② Number of people</h2>
+  <div class="stepper-row"><div><strong>Adults</strong><br><span class="small muted" id="u-adults"></span></div><div class="stepper" data-key="adults"><button type="button" data-d="-1" aria-label="Fewer Adults">−</button><output>2</output><button type="button" data-d="1" aria-label="More Adults">＋</button></div></div>
+  <div class="stepper-row"><div><strong>Children (2+)</strong><br><span class="small muted" id="u-children"></span></div><div class="stepper" data-key="children"><button type="button" data-d="-1" aria-label="Fewer Children (2+)">−</button><output>0</output><button type="button" data-d="1" aria-label="More Children (2+)">＋</button></div></div>
+  <div class="stepper-row"><div><strong>Infants (under 2)</strong><br><span class="small muted">Free</span></div><div class="stepper" data-key="infants"><button type="button" data-d="-1" aria-label="Fewer Infants (under 2)">−</button><output>0</output><button type="button" data-d="1" aria-label="More Infants (under 2)">＋</button></div></div>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">③ Lead traveler</h2>
+  <label class="field" id="f-name"><span class="label">Full name<span class="req">Required</span></span><input id="in-name" autocomplete="name" placeholder="e.g. HANAKO YAMADA"><span class="err">Please enter your name</span></label>
+  <label class="field" id="f-phone"><span class="label">Phone number<span class="req">Required</span></span><input id="in-phone" type="tel" autocomplete="tel" placeholder="e.g. +81 90-1234-5678"><span class="err">Please enter your phone number</span></label>
+  <label class="field" id="f-line"><span class="label">LINE ID<span class="req">Required</span></span><input id="in-line" autocomplete="off" placeholder="e.g. hanako_trip"><span class="hint">We’ll send confirmation or cancellation notices via LINE.</span><span class="err">Please enter your LINE ID</span></label>
+</section>
+
+<section class="sec tint">
+  <div class="total-row"><span>Total</span><strong id="total">—</strong></div>
+  <p class="small muted" id="total-jpy" style="text-align:right"></p>
+  <p class="small muted" style="margin-top:6px">Payment is in Korean won (KRW). The amount is fixed when you tap “Continue to payment”.</p>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">④ Review &amp; agree</h2>
+  <label class="check"><input type="checkbox" id="ag-tentative"><span>I understand this is a provisional booking, and the tour will be cancelled with a full refund if fewer than 10 people join by 3 days before departure.</span></label>
+  <label class="check"><input type="checkbox" id="ag-cancel"><span>I agree to the <a class="text-link" href="legal.html#cancel" target="_blank">cancellation policy</a>.</span></label>
+  <label class="check"><input type="checkbox" id="ag-privacy"><span>I agree to the <a class="text-link" href="legal.html#privacy" target="_blank">privacy policy</a>.</span></label>
+  <div class="error-box hidden" id="form-error" style="margin-top:14px"></div>
+  <button class="btn" id="to-pay" type="button" style="margin-top:16px">Continue to payment</button>
+</section>
+
+<section class="sec hidden" id="pay-sec">
+  <h2 class="step-title">⑤ Payment</h2>
+  <div class="notice" id="locked"></div>
+  <div id="payment-method" style="margin-top:12px"></div>
+  <div id="agreement"></div>
+  <p class="small muted">As this is an international payment, your card issuer may charge a fee.</p>
+  <button class="btn" id="pay-btn" type="button" style="margin-top:12px" disabled>Pay</button>
+  <button class="btn sub" id="edit-btn" type="button" style="margin-top:8px">Edit details</button>
+</section>
+
+<section class="sec" style="background:#f1f1f1">
+  <p class="small muted">Company: KOKOIKO | Representative: SUN IL ROH | Business registration no.: to be announced | Mail-order business report no.: to be announced | Address: Songpa-gu, Seoul, Republic of Korea | Phone: to be announced</p>
+  <p class="small" style="margin-top:6px"><a href="legal.html#tokushoho">Terms &amp; legal notice</a> ・ <a href="legal.html#privacy">Privacy policy</a> ・ <a href="legal.html#cancel">Refund policy</a></p>
+</section>
+</main>
+</div>
+<script src="/js/common.js"></script>
+<script src="/js/checkout.js"></script>
+</body>
+</html>

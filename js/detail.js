@@ -12,7 +12,7 @@
       const box = document.querySelector('.demo-status');
       box.classList.remove('hidden');
       box.querySelector('.progress span').style.width = (a.booked / K.GROUP_SIZE_MIN * 100) + '%';
-      box.querySelector('.demo-text').textContent = `${K.fmtDate(s)}出発：いま${a.booked}名・あと約${a.remainGroups}組で出発確定`;
+      box.querySelector('.demo-text').textContent = K.T.demoDetail(K.fmtDate(s), a.booked, a.remainGroups);
       break;
     }
   }

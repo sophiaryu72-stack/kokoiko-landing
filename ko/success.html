@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신청 완료 | 코코이코</title>
+<meta name="description" content="신청 완료 | 코코이코">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="신청 완료 | 코코이코">
+<meta property="og:description" content="신청 완료 | 코코이코">
+<meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/success.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/success.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/success.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/success.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>테스트 모드 (실제로 결제되지 않습니다)</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/success.html" lang="ja" hreflang="ja" data-lang="ja">日本語</a><a href="/en/success.html" lang="en" hreflang="en" data-lang="en">English</a><a href="/ko/success.html" lang="ko" hreflang="ko" data-lang="ko" aria-current="true">한국어</a></nav>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="코코이코 처음으로"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  
+</header>
+<main>
+<section class="sec" id="loading" style="text-align:center;padding:60px 18px">
+  <div class="spinner"></div><p class="muted" style="margin-top:14px">결제를 확인하고 있어요…</p>
+</section>
+
+<div id="done" class="hidden">
+<section class="sec stack">
+  <div class="result-icon">✓</div>
+  <h1 style="font-size:22px">신청이 접수되었어요</h1>
+  <p style="font-weight:700">※ 아직 출발 확정이 아니에요 (예약 대기)</p>
+  <p class="small muted">같은 날짜에 10명이 모이면 출발이 확정되고 LINE으로 알려 드려요.</p>
+</section>
+<section class="sec tint">
+  <h2 style="font-size:17px;margin-bottom:10px">신청 내용</h2>
+  <dl class="kv" id="summary"></dl>
+</section>
+<section class="sec hidden" id="demo-box">
+  <div class="box strong"><p class="small"><strong id="demo-text"></strong> <span class="muted">(데모 표시)</span></p></div>
+</section>
+<section class="sec">
+  <h2 style="font-size:17px;margin-bottom:10px">앞으로의 진행</h2>
+  <ol style="padding-left:20px;margin:0" class="stack small"><li>LINE에서 ‘코코이코’를 친구 추가해 주세요.</li><li>출발 3일 전까지 출발 확정 또는 취소를 LINE으로 알려 드려요. 집합 장소 안내도 이때 함께 보내 드려요.</li><li>취소되면 결제 금액을 전액 환불해 드려요 (따로 신청할 필요 없어요).</li></ol>
+  <a class="btn line" href="#" id="line-add" style="margin-top:18px">LINE 친구 추가</a>
+  <p class="small muted" style="margin-top:6px;text-align:center">LINE 공식 계정은 준비 중이에요</p>
+  <a class="btn sub" href="index.html" style="margin-top:10px">처음으로</a>
+</section>
+</div>
+
+<section class="sec hidden stack" id="ng">
+  <div class="result-icon ng">!</div>
+  <h1 style="font-size:20px">결제를 완료하지 못했어요</h1>
+  <div class="error-box" id="ng-msg"></div>
+  <p class="small">요금은 청구되지 않았어요. 다시 시도해 주세요.</p>
+  <a class="btn" href="#" id="retry">신청 화면으로</a>
+</section>
+</main>
+</div>
+<script src="/js/common.js"></script>
+<script src="/js/success.js"></script>
+</body>
+</html>

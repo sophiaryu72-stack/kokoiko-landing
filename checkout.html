@@ -4,25 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>お申し込み ｜ ここいこ</title>
-<meta name="description" content="ツアーのお申し込み">
+<meta name="description" content="お申し込み ｜ ここいこ">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ここいこ KOKOIKO">
 <meta property="og:title" content="お申し込み ｜ ここいこ">
-<meta property="og:description" content="ツアーのお申し込み">
+<meta property="og:description" content="お申し込み ｜ ここいこ">
 <meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/checkout.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/checkout.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/checkout.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/checkout.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
 <meta name="robots" content="noindex">
 <script src="https://js.tosspayments.com/v2/standard"></script>
 </head>
 <body>
 <div class="page">
 <div class="test-banner" hidden>テストモード（実際の請求は発生しません）</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/checkout.html" lang="ja" hreflang="ja" data-lang="ja" aria-current="true">日本語</a><a href="/en/checkout.html" lang="en" hreflang="en" data-lang="en">English</a><a href="/ko/checkout.html" lang="ko" hreflang="ko" data-lang="ko">한국어</a></nav>
 <header class="site-header">
   <a class="logo" href="index.html" aria-label="ここいこ トップへ"><span class="k1">ここ</span><span class="k2">いこ</span></a>
   <a class="header-link" href="javascript:history.back()">‹ 戻る</a>
@@ -48,9 +53,9 @@
 
 <section class="sec">
   <h2 class="step-title">② 人数</h2>
-  <div class="stepper-row"><div><strong>大人</strong><br><span class="small muted" id="u-adult"></span></div><div class="stepper" data-key="adults"><button type="button" data-d="-1" aria-label="大人を減らす">−</button><output>2</output><button type="button" data-d="1" aria-label="大人を増やす">＋</button></div></div>
-  <div class="stepper-row"><div><strong>子供（2歳以上）</strong><br><span class="small muted" id="u-child"></span></div><div class="stepper" data-key="children"><button type="button" data-d="-1" aria-label="子供を減らす">−</button><output>0</output><button type="button" data-d="1" aria-label="子供を増やす">＋</button></div></div>
-  <div class="stepper-row"><div><strong>幼児（2歳未満）</strong><br><span class="small muted">無料</span></div><div class="stepper" data-key="infants"><button type="button" data-d="-1" aria-label="幼児を減らす">−</button><output>0</output><button type="button" data-d="1" aria-label="幼児を増やす">＋</button></div></div>
+  <div class="stepper-row"><div><strong>大人</strong><br><span class="small muted" id="u-adults"></span></div><div class="stepper" data-key="adults"><button type="button" data-d="-1" aria-label="大人を減らす">−</button><output>2</output><button type="button" data-d="1" aria-label="大人を増やす">＋</button></div></div>
+  <div class="stepper-row"><div><strong>子供（2歳以上）</strong><br><span class="small muted" id="u-children"></span></div><div class="stepper" data-key="children"><button type="button" data-d="-1" aria-label="子供（2歳以上）を減らす">−</button><output>0</output><button type="button" data-d="1" aria-label="子供（2歳以上）を増やす">＋</button></div></div>
+  <div class="stepper-row"><div><strong>幼児（2歳未満）</strong><br><span class="small muted">無料</span></div><div class="stepper" data-key="infants"><button type="button" data-d="-1" aria-label="幼児（2歳未満）を減らす">−</button><output>0</output><button type="button" data-d="1" aria-label="幼児（2歳未満）を増やす">＋</button></div></div>
 </section>
 
 <section class="sec">
@@ -91,7 +96,7 @@
 </section>
 </main>
 </div>
-<script src="js/common.js"></script>
-<script src="js/checkout.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/checkout.js"></script>
 </body>
 </html>

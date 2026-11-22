@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신청 | 코코이코</title>
+<meta name="description" content="신청 | 코코이코">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="신청 | 코코이코">
+<meta property="og:description" content="신청 | 코코이코">
+<meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/checkout.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/checkout.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/checkout.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/checkout.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="robots" content="noindex">
+<script src="https://js.tosspayments.com/v2/standard"></script>
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>테스트 모드 (실제로 결제되지 않습니다)</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/checkout.html" lang="ja" hreflang="ja" data-lang="ja">日本語</a><a href="/en/checkout.html" lang="en" hreflang="en" data-lang="en">English</a><a href="/ko/checkout.html" lang="ko" hreflang="ko" data-lang="ko" aria-current="true">한국어</a></nav>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="코코이코 처음으로"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  <a class="header-link" href="javascript:history.back()">‹ 뒤로</a>
+</header>
+<main>
+<section class="sec tint">
+  <p class="small muted">신청 투어</p>
+  <h1 id="co-name" style="font-size:16px;margin-top:2px"></h1>
+  <p class="small" style="margin-top:4px"><span id="co-unit"></span> / 1인 (만 2세 미만 무료)</p>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">① 날짜 선택</h2>
+  <div id="suggest-wrap" class="hidden">
+    <p class="small" style="font-weight:700;margin-bottom:8px">곧 출발 확정되는 날짜 <span class="muted" style="font-weight:400">(데모 표시)</span></p>
+    <div class="date-cards" id="suggest"></div>
+    <p class="small muted" style="margin:12px 0 8px">원하는 날짜가 없으면 달력에서 고를 수 있어요.</p>
+  </div>
+  <div class="cal" id="cal"></div>
+  <p class="small muted" style="margin-top:8px">신청은 출발 4일 전까지 가능해요. 한국 공휴일에는 운영하지 않아요.</p>
+  <p class="small" id="date-picked" style="margin-top:8px;font-weight:700"></p>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">② 인원</h2>
+  <div class="stepper-row"><div><strong>성인</strong><br><span class="small muted" id="u-adults"></span></div><div class="stepper" data-key="adults"><button type="button" data-d="-1" aria-label="성인 줄이기">−</button><output>2</output><button type="button" data-d="1" aria-label="성인 늘리기">＋</button></div></div>
+  <div class="stepper-row"><div><strong>소아(만 2세 이상)</strong><br><span class="small muted" id="u-children"></span></div><div class="stepper" data-key="children"><button type="button" data-d="-1" aria-label="소아(만 2세 이상) 줄이기">−</button><output>0</output><button type="button" data-d="1" aria-label="소아(만 2세 이상) 늘리기">＋</button></div></div>
+  <div class="stepper-row"><div><strong>유아(만 2세 미만)</strong><br><span class="small muted">무료</span></div><div class="stepper" data-key="infants"><button type="button" data-d="-1" aria-label="유아(만 2세 미만) 줄이기">−</button><output>0</output><button type="button" data-d="1" aria-label="유아(만 2세 미만) 늘리기">＋</button></div></div>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">③ 대표자 정보</h2>
+  <label class="field" id="f-name"><span class="label">이름<span class="req">필수</span></span><input id="in-name" autocomplete="name" placeholder="예) 홍길동"><span class="err">이름을 입력해 주세요</span></label>
+  <label class="field" id="f-phone"><span class="label">전화번호<span class="req">필수</span></span><input id="in-phone" type="tel" autocomplete="tel" placeholder="예) 010-1234-5678"><span class="err">전화번호를 입력해 주세요</span></label>
+  <label class="field" id="f-line"><span class="label">LINE ID<span class="req">필수</span></span><input id="in-line" autocomplete="off" placeholder="예) gildong_trip"><span class="hint">출발 확정·취소 안내는 LINE으로 보내 드려요.</span><span class="err">LINE ID를 입력해 주세요</span></label>
+</section>
+
+<section class="sec tint">
+  <div class="total-row"><span>결제 합계</span><strong id="total">—</strong></div>
+  <p class="small muted" id="total-jpy" style="text-align:right"></p>
+  <p class="small muted" style="margin-top:6px">결제는 원화(KRW)이며, ‘결제 진행’을 누르는 시점에 금액이 확정돼요.</p>
+</section>
+
+<section class="sec">
+  <h2 class="step-title">④ 확인·동의</h2>
+  <label class="check"><input type="checkbox" id="ag-tentative"><span>신청 시점에는 예약 대기이며, 출발 3일 전까지 10명이 모이지 않으면 투어 취소·전액 환불되는 것에 동의합니다.</span></label>
+  <label class="check"><input type="checkbox" id="ag-cancel"><span><a class="text-link" href="legal.html#cancel" target="_blank">취소·환불 규정</a>에 동의합니다.</span></label>
+  <label class="check"><input type="checkbox" id="ag-privacy"><span><a class="text-link" href="legal.html#privacy" target="_blank">개인정보 처리방침</a>에 동의합니다.</span></label>
+  <div class="error-box hidden" id="form-error" style="margin-top:14px"></div>
+  <button class="btn" id="to-pay" type="button" style="margin-top:16px">결제 진행</button>
+</section>
+
+<section class="sec hidden" id="pay-sec">
+  <h2 class="step-title">⑤ 결제</h2>
+  <div class="notice" id="locked"></div>
+  <div id="payment-method" style="margin-top:12px"></div>
+  <div id="agreement"></div>
+  <p class="small muted">해외 발급 카드는 카드사 수수료가 부과될 수 있어요.</p>
+  <button class="btn" id="pay-btn" type="button" style="margin-top:12px" disabled>결제하기</button>
+  <button class="btn sub" id="edit-btn" type="button" style="margin-top:8px">내용 수정</button>
+</section>
+
+<section class="sec" style="background:#f1f1f1">
+  <p class="small muted">상호 코코이코(KOKOIKO) | 대표자 SUN IL ROH | 사업자등록번호 확정 후 게재 | 통신판매업 신고번호 확정 후 게재 | 소재지 서울특별시 송파구 | 전화번호 확정 후 게재</p>
+  <p class="small" style="margin-top:6px"><a href="legal.html#tokushoho">이용약관·특정상거래법 표기</a> ・ <a href="legal.html#privacy">개인정보 처리방침</a> ・ <a href="legal.html#cancel">환불 정책</a></p>
+</section>
+</main>
+</div>
+<script src="/js/common.js"></script>
+<script src="/js/checkout.js"></script>
+</body>
+</html>

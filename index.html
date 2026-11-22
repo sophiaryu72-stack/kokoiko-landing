@@ -12,15 +12,20 @@
 <meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/index.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/index.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/index.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/index.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div class="page">
 <div class="test-banner" hidden>テストモード（実際の請求は発生しません）</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/index.html" lang="ja" hreflang="ja" data-lang="ja" aria-current="true">日本語</a><a href="/en/index.html" lang="en" hreflang="en" data-lang="en">English</a><a href="/ko/index.html" lang="ko" hreflang="ko" data-lang="ko">한국어</a></nav>
 <header class="site-header">
   <a class="logo" href="index.html" aria-label="ここいこ トップへ"><span class="k1">ここ</span><span class="k2">いこ</span></a>
   <a class="header-link" href="#tours">ツアーを見る</a>
@@ -46,7 +51,7 @@
 <path class="route" d="M107.1 91.0 L119.0 220.5"/>
 <line class="link" x1="228.9" y1="82.9" x2="241.5" y2="77.7"/>
 <line class="link" x1="119.0" y1="220.5" x2="107.8" y2="257.5"/>
-<circle class="soon" cx="263.9" cy="219.0" r="7"/><text class="soon-t" x="213.89999999999998" y="223.0">準備中</text>
+<circle class="soon" cx="263.9" cy="219.0" r="7"/><text class="soon-t" x="220.9" y="223.0">準備中</text>
 <circle class="soon" cx="158.9" cy="297.5" r="7"/><text class="soon-t" x="168.9" y="301.5">準備中</text>
 <g class="pin-g" data-target="gangneung" tabindex="0" role="button" aria-label="大関嶺・江陵のツアーを見る">
 <circle class="hit" cx="228.9" cy="82.9" r="18"/><circle class="pin" cx="228.9" cy="82.9" r="8"/>
@@ -60,9 +65,9 @@
 <circle class="hit" cx="107.8" cy="257.5" r="18"/><circle class="pin main" cx="107.8" cy="257.5" r="8"/>
 </g>
 <rect class="seoul" x="100.1" y="84.0" width="14" height="14" rx="3"/>
-<text x="51.099999999999994" y="79.0">ソウル（出発）</text>
-<text x="178.9" y="102.9">大関嶺</text>
-<text x="235.5" y="64.7">江陵</text>
+<text x="65.1" y="78.0">ソウル（出発）</text>
+<text x="198.9" y="104.9">大関嶺</text>
+<text x="229.5" y="64.7">江陵</text>
 <text x="216.4" y="139.7">丹陽</text>
 <text x="132.0" y="225.5">全州</text>
 <text x="120.8" y="263.5">潭陽</text>
@@ -74,7 +79,7 @@
 <section class="sec" id="tours">
   <div class="sec-title"><h2>日帰りツアー</h2><span class="en">TOURS</span></div>
   <a class="tour-card" id="card-jeonju-damyang" href="jeonju-damyang.html">
-  <div class="ph " role="img" aria-label="全州・潭陽の写真">全州・潭陽の写真</div>
+  <div class="ph " role="img" aria-label="全州・潭陽（写真は準備中）">全州・潭陽（写真は準備中）</div>
   <div>
     <div><span class="tag pink">イチオシ</span> <span class="tag sky">ソウル発・日帰り</span></div>
     <h3 style="margin-top:6px">韓屋と竹林にときめく韓国旅 ～全州・潭陽～</h3>
@@ -83,7 +88,7 @@
   </div>
 </a>
 <a class="tour-card" id="card-gangneung" href="gangneung.html">
-  <div class="ph " role="img" aria-label="大関嶺・江陵の写真">大関嶺・江陵の写真</div>
+  <div class="ph " role="img" aria-label="大関嶺・江陵（写真は準備中）">大関嶺・江陵（写真は準備中）</div>
   <div>
     <div><span class="tag sky">ソウル発・日帰り</span></div>
     <h3 style="margin-top:6px">ソウルから出発！大関嶺の山と江陵の海を巡る旅</h3>
@@ -92,7 +97,7 @@
   </div>
 </a>
 <a class="tour-card" id="card-danyang" href="danyang.html">
-  <div class="ph " role="img" aria-label="丹陽の写真">丹陽の写真</div>
+  <div class="ph " role="img" aria-label="丹陽（写真は準備中）">丹陽（写真は準備中）</div>
   <div>
     <div><span class="tag sky">ソウル発・日帰り</span></div>
     <h3 style="margin-top:6px">韓国の絶景・癒しの旅 ～丹陽～</h3>
@@ -106,9 +111,7 @@
 <section class="sec pinkish">
   <div class="sec-title"><h2>みんなで楽しむ、現地体験</h2><span class="en">COMING SOON</span></div>
   <p class="muted" style="margin-bottom:16px">ツアーとあわせて楽しめる体験を準備しています。</p>
-  <div class="svc"><div class="icon">👘</div><div><h3>韓服（ハンボク）体験 <span class="tag">準備中</span></h3><p class="small muted">韓屋の街並みを、韓服を着てお散歩。友達とおそろいで。</p></div></div>
-  <div class="svc"><div class="icon">🍽</div><div><h3>人気店の予約代行 <span class="tag">準備中</span></h3><p class="small muted">予約が取りにくい地元のお店を、事前にお取りします。</p></div></div>
-  <div class="svc"><div class="icon">🎟</div><div><h3>アクティビティの事前予約 <span class="tag">準備中</span></h3><p class="small muted">現地の体験を、ツアーとまとめて予約できるようにします。</p></div></div>
+  <div class="svc"><div class="icon">👘</div><div><h3>韓服（ハンボク）体験 <span class="tag">準備中</span></h3><p class="small muted">韓屋の街並みを、韓服を着てお散歩。友達とおそろいで。</p></div></div><div class="svc"><div class="icon">🍽</div><div><h3>人気店の予約代行 <span class="tag">準備中</span></h3><p class="small muted">予約が取りにくい地元のお店を、事前にお取りします。</p></div></div><div class="svc"><div class="icon">🎟</div><div><h3>アクティビティの事前予約 <span class="tag">準備中</span></h3><p class="small muted">現地の体験を、ツアーとまとめて予約できるようにします。</p></div></div>
 </section>
 
 <section class="sec">
@@ -132,7 +135,7 @@
   <p class="company">ここいこ（KOKOIKO）<br>所在地：大韓民国 ソウル特別市 松坡区<br>お問い合わせ：LINE・メール（窓口は準備中です）</p>
 </footer>
 </div>
-<script src="js/common.js"></script>
-<script src="js/index.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>결제 오류 | 코코이코</title>
+<meta name="description" content="결제 오류 | 코코이코">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="결제 오류 | 코코이코">
+<meta property="og:description" content="결제 오류 | 코코이코">
+<meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/fail.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/fail.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/fail.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/fail.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>테스트 모드 (실제로 결제되지 않습니다)</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/fail.html" lang="ja" hreflang="ja" data-lang="ja">日本語</a><a href="/en/fail.html" lang="en" hreflang="en" data-lang="en">English</a><a href="/ko/fail.html" lang="ko" hreflang="ko" data-lang="ko" aria-current="true">한국어</a></nav>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="코코이코 처음으로"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  
+</header>
+<main>
+<section class="sec stack">
+  <div class="result-icon ng">!</div>
+  <h1 style="font-size:20px">결제가 완료되지 않았어요</h1>
+  <p>아직 신청이 접수되지 않았고, 요금도 청구되지 않았어요.</p>
+  <div class="error-box"><p id="f-msg">결제가 중단되었어요.</p><p class="small" id="f-code" style="margin-top:4px"></p></div>
+  <a class="btn" href="#" id="retry">다시 결제하기</a>
+  <a class="btn sub" href="index.html">처음으로</a>
+</section>
+</main>
+</div>
+<script src="/js/common.js"></script>
+<script src="/js/fail.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Booking received | KOKOIKO</title>
+<meta name="description" content="Booking received | KOKOIKO">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ここいこ KOKOIKO">
+<meta property="og:title" content="Booking received | KOKOIKO">
+<meta property="og:description" content="Booking received | KOKOIKO">
+<meta property="og:image" content="https://kokoiko-landing-chi.vercel.app/img/ogp.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" hreflang="ja" href="https://kokoiko-landing-chi.vercel.app/success.html">
+<link rel="alternate" hreflang="en" href="https://kokoiko-landing-chi.vercel.app/en/success.html">
+<link rel="alternate" hreflang="ko" href="https://kokoiko-landing-chi.vercel.app/ko/success.html">
+<link rel="alternate" hreflang="x-default" href="https://kokoiko-landing-chi.vercel.app/success.html">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="page">
+<div class="test-banner" hidden>Test mode (no actual charges)</div>
+<nav class="lang-bar" aria-label="Language"><span aria-hidden="true">🌐</span><a href="/success.html" lang="ja" hreflang="ja" data-lang="ja">日本語</a><a href="/en/success.html" lang="en" hreflang="en" data-lang="en" aria-current="true">English</a><a href="/ko/success.html" lang="ko" hreflang="ko" data-lang="ko">한국어</a></nav>
+<header class="site-header">
+  <a class="logo" href="index.html" aria-label="KOKOIKO home"><span class="k1">ここ</span><span class="k2">いこ</span></a>
+  
+</header>
+<main>
+<section class="sec" id="loading" style="text-align:center;padding:60px 18px">
+  <div class="spinner"></div><p class="muted" style="margin-top:14px">Confirming your payment…</p>
+</section>
+
+<div id="done" class="hidden">
+<section class="sec stack">
+  <div class="result-icon">✓</div>
+  <h1 style="font-size:22px">We’ve received your booking request</h1>
+  <p style="font-weight:700">* Not confirmed yet (provisional booking)</p>
+  <p class="small muted">The tour is confirmed once 10 people book the same date. We’ll notify you via LINE.</p>
+</section>
+<section class="sec tint">
+  <h2 style="font-size:17px;margin-bottom:10px">Booking details</h2>
+  <dl class="kv" id="summary"></dl>
+</section>
+<section class="sec hidden" id="demo-box">
+  <div class="box strong"><p class="small"><strong id="demo-text"></strong> <span class="muted">(demo)</span></p></div>
+</section>
+<section class="sec">
+  <h2 style="font-size:17px;margin-bottom:10px">What’s next</h2>
+  <ol style="padding-left:20px;margin:0" class="stack small"><li>Add KOKOIKO as a friend on LINE.</li><li>By 3 days before departure, we’ll tell you via LINE whether the tour is confirmed or cancelled, along with meeting-point details.</li><li>If the tour is cancelled, you’ll receive a full refund (no action needed).</li></ol>
+  <a class="btn line" href="#" id="line-add" style="margin-top:18px">Add us on LINE</a>
+  <p class="small muted" style="margin-top:6px;text-align:center">Our LINE account is coming soon</p>
+  <a class="btn sub" href="index.html" style="margin-top:10px">Back to home</a>
+</section>
+</div>
+
+<section class="sec hidden stack" id="ng">
+  <div class="result-icon ng">!</div>
+  <h1 style="font-size:20px">We couldn’t complete your payment</h1>
+  <div class="error-box" id="ng-msg"></div>
+  <p class="small">You have not been charged. Please try again.</p>
+  <a class="btn" href="#" id="retry">Back to booking</a>
+</section>
+</main>
+</div>
+<script src="/js/common.js"></script>
+<script src="/js/success.js"></script>
+</body>
+</html>
