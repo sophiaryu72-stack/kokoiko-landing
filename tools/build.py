@@ -147,7 +147,7 @@ def map_svg(lang):
         main = ' main' if pid == 'jeonju-damyang' else ''
         out.append(f'<g class="pin-g" data-target="{pid}" tabindex="0" role="button" aria-label="{e(t["pin_aria"].format(P[pid][lang]["short"]))}">')
         for k in keys:
-            out.append(f'<circle class="hit" cx="{Pn[k][0]}" cy="{Pn[k][1]}" r="18"/><circle class="pin{main}" cx="{Pn[k][0]}" cy="{Pn[k][1]}" r="8"/>')
+            out.append(f'<circle class="hit" cx="{Pn[k][0]}" cy="{Pn[k][1]}" r="22"/><circle class="pin{main}" cx="{Pn[k][0]}" cy="{Pn[k][1]}" r="8"/>')
         out.append('</g>')
     out.append(f'<rect class="seoul" x="{S[0] - 7}" y="{S[1] - 7}" width="14" height="14" rx="3"/>')
     labels = [('seoul', S[0] - tw(lang, lb['seoul']) / 2, S[1] - 13),
@@ -184,6 +184,7 @@ def page_index(lang):
 <section class="hero">
   {slideshow(lang)}
   <div class="hero-copy">
+    <div class="eyebrow"><span class="tag sky">{e(t["tag_day"])}</span> <span class="tag">{e(" / ".join(P[x][lang]["short"] for x in ORDER))}</span></div>
     <h1>{t["h1"]}</h1>
     <p>{e(t["hero_p"])}</p>
   </div>

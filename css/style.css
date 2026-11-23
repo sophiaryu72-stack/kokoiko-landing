@@ -242,3 +242,23 @@ details.more .inner { padding: 4px 14px 2px; }
 .spinner { width: 34px; height: 34px; border: 3px solid var(--sky-soft); border-top-color: var(--sky); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .hidden { display: none !important; }
+
+/* ---- QA: タップ領域 44px 以上 ---- */
+.lang-bar { padding: 0 8px; }
+.lang-bar a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 10px; }
+.lang-bar a[aria-current] { background: transparent; color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.logo, .header-link { min-height: 44px; display: inline-flex; align-items: center; }
+.dots { gap: 0; bottom: 0; }
+.dot-btn, .dot-btn.on { width: 40px; height: 44px; background: transparent; position: relative; border-radius: 0; }
+.dot-btn::before { content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; transform: translate(-50%, -50%); border-radius: 99px; background: rgba(255,255,255,.55); transition: width .3s; }
+.dot-btn.on::before { width: 20px; background: #fff; }
+.slide figcaption .place { bottom: 46px; }
+.site-footer a { padding: 12px 0; }
+.sec p > a.text-link, .kv dd a.text-link, #credits a.text-link { display: inline-block; padding: 12px 0; margin: -8px 0; }
+.cal { padding: 8px; }
+.cal-grid { gap: 2px; }
+.cal-head button { width: 44px; height: 44px; }
+.stepper button { width: 44px; height: 44px; }
+.check { min-height: 44px; align-items: center; }
+.check input { width: 22px; height: 22px; margin-top: 0; }
+.eyebrow { margin-bottom: 8px; }
