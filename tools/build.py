@@ -483,7 +483,7 @@ def page_checkout(lang):
 
 <section class="sec" style="background:#f1f1f1">
   <p class="small muted">{e(t["pg"])}</p>
-  <p class="small" style="margin-top:6px"><a href="legal.html#tokushoho">{e(t["pg_links"][0])}</a> ・ <a href="legal.html#privacy">{e(t["pg_links"][1])}</a> ・ <a href="legal.html#cancel">{e(t["pg_links"][2])}</a></p>
+  <p class="small pg-links" style="margin-top:6px"><a href="legal.html#tokushoho">{e(t["pg_links"][0])}</a> ・ <a href="legal.html#privacy">{e(t["pg_links"][1])}</a> ・ <a href="legal.html#cancel">{e(t["pg_links"][2])}</a></p>
 </section>
 </main>
 ''' + pg.tail('<script src="/js/checkout.js"></script>\n')

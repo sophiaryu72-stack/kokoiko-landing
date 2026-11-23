@@ -262,3 +262,6 @@ details.more .inner { padding: 4px 14px 2px; }
 .check { min-height: 44px; align-items: center; }
 .check input { width: 22px; height: 22px; margin-top: 0; }
 .eyebrow { margin-bottom: 8px; }
+.dot-btn, .dot-btn.on { width: 44px; }
+.cal { padding: 6px; }
+.pg-links a { display: inline-block; padding: 12px 0; margin: -6px 0; }
