@@ -1,5 +1,5 @@
 // 注文を作る。金額はブラウザから受け取らず、サーバーの価格表で決める。
-const { PRODUCTS, MAX_PER_TYPE, calcAmount, makeOrderId, readJson, send } = require('./_lib');
+const { PRODUCTS, MAX_PER_TYPE, HOLIDAYS, calcAmount, makeOrderId, readJson, send } = require('./_lib');
 const { getRate } = require('./_rate');
 
 const isInt = (v, min, max) => Number.isInteger(v) && v >= min && v <= max;
@@ -18,13 +18,13 @@ module.exports = async (req, res) => {
   const adults = Number(body.adults), children = Number(body.children), infants = Number(body.infants);
   if (!product) return send(res, 400, { code: 'INVALID_PRODUCT', message: 'ツアーが見つかりません' });
   if (!isInt(adults, 1, MAX_PER_TYPE) || !isInt(children, 0, MAX_PER_TYPE) || !isInt(infants, 0, MAX_PER_TYPE)) {
-    return send(res, 400, { code: 'INVALID_PEOPLE', message: '人数を確認してください（大人1名以上）' });
+    return send(res, 400, { code: 'INVALID_PEOPLE', message: '人数を確認してください（大人1名以上、各9名まで）' });
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(body.date || '')) return send(res, 400, { code: 'INVALID_DATE', message: '日程を選んでください' });
   const d = new Date(body.date + 'T00:00:00Z');
   const diffDays = Math.round((d - kstToday()) / 86400000);
   // 出発3日前に催行判断をするため、申込は出発4日前まで（仮定・クライアント確認事項）
-  if (!(diffDays >= 4 && diffDays <= 120)) return send(res, 400, { code: 'DATE_NOT_AVAILABLE', message: 'この日程はお申し込みいただけません' });
+  if (!(diffDays >= 4 && diffDays <= 120) || HOLIDAYS.includes(body.date)) return send(res, 400, { code: 'DATE_NOT_AVAILABLE', message: 'この日程はお申し込みいただけません' });
 
   const amount = calcAmount(product, adults, children);
   const orderId = makeOrderId(product, adults, children, infants, body.date);

@@ -11,6 +11,9 @@ const BY_CODE = Object.fromEntries(Object.entries(PRODUCTS).map(([id, p]) => [p.
 
 const MAX_PER_TYPE = 9; // 大人・子供・幼児それぞれの上限（1件の申込あたり）
 
+// 韓国の祝日（催行なし）。js/common.js の holidays と揃えること。※2027年以降は要確認
+const HOLIDAYS = ['2026-12-25', '2027-01-01', '2027-02-05', '2027-02-06', '2027-02-07', '2027-02-08', '2027-03-01', '2027-05-05', '2027-05-13'];
+
 // 大人・子供は同額、2歳未満は無料（クライアント情報要求書）
 function calcAmount(product, adults, children) {
   return product.price * (adults + children);
@@ -66,4 +69,4 @@ function send(res, status, data) {
   res.end(JSON.stringify(data));
 }
 
-module.exports = { PRODUCTS, MAX_PER_TYPE, calcAmount, makeOrderId, parseOrderId, readJson, send };
+module.exports = { PRODUCTS, MAX_PER_TYPE, HOLIDAYS, calcAmount, makeOrderId, parseOrderId, readJson, send };

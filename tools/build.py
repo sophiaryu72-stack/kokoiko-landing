@@ -433,7 +433,7 @@ def page_checkout(lang):
     pg, t = Page(lang, 'checkout.html'), L[lang]
     total_jpy = '<p class="small muted" id="total-jpy" style="text-align:right"></p>'
     return pg.head(t['co_title'], t['co_title'], '<meta name="robots" content="noindex">\n<script src="https://js.tosspayments.com/v2/standard"></script>\n') \
-        + pg.header(f'<a class="header-link" href="javascript:history.back()">{e(t["back"])}</a>') + f'''<main>
+        + pg.header(f'<a class="header-link" id="back-link" href="index.html">{e(t["back"])}</a>') + f'''<main>
 <section class="sec tint">
   <p class="small muted">{e(t["co_tour"])}</p>
   <h1 id="co-name" style="font-size:16px;margin-top:2px"></h1>
@@ -556,6 +556,22 @@ def page_fail(lang):
 ''' + pg.tail('<script src="/js/fail.js"></script>\n')
 
 
+def page_404(lang):
+    pg, t = Page(lang, '404.html'), L[lang]
+    msg = {'ja': ('ページが見つかりません', 'お探しのページは移動または削除された可能性があります。'),
+           'en': ('Page not found', 'The page you are looking for may have been moved or removed.'),
+           'ko': ('페이지를 찾을 수 없어요', '찾으시는 페이지가 이동되었거나 삭제되었을 수 있어요.')}[lang]
+    return pg.head(msg[0], msg[1], '<meta name="robots" content="noindex">\n') + pg.header() + f'''<main>
+<section class="sec stack" style="padding:60px 18px">
+  <div class="result-icon ng">?</div>
+  <h1 style="font-size:20px">{e(msg[0])}</h1>
+  <p class="muted">{e(msg[1])}</p>
+  <a class="btn" href="{PREFIX[lang]}index.html#tours">{e(t["see_tours"])}</a>
+</section>
+</main>
+''' + pg.footer() + pg.tail()
+
+
 def write(lang, name, content):
     d = ROOT if lang == 'ja' else os.path.join(ROOT, lang)
     os.makedirs(d, exist_ok=True)
@@ -573,4 +589,5 @@ if __name__ == '__main__':
         write(lang, 'checkout.html', page_checkout(lang))
         write(lang, 'success.html', page_success(lang))
         write(lang, 'fail.html', page_fail(lang))
+        write(lang, '404.html', page_404(lang))
     print('built', LANGS)

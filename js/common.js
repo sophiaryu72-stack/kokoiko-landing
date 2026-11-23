@@ -29,7 +29,7 @@ window.KOKOIKO = (function () {
       noPayInfo: 'お支払い情報が見つかりませんでした。', confirmFail: 'お支払いを確認できませんでした。', network: '通信エラーが発生しました。時間をおいて再度お試しください。',
       errCode: 'エラーコード：',
       err: {
-        INVALID_PRODUCT: 'ツアーが見つかりません。', INVALID_PEOPLE: '人数を確認してください（大人1名以上）。', INVALID_DATE: '日程を選んでください。',
+        INVALID_PRODUCT: 'ツアーが見つかりません。', INVALID_PEOPLE: '人数を確認してください（大人1名以上、各9名まで）。', INVALID_DATE: '日程を選んでください。',
         DATE_NOT_AVAILABLE: 'この日程はお申し込みいただけません。', AMOUNT_MISMATCH: 'お支払い金額が正しくありません。決済は承認されていません。',
         INVALID_ORDER: '注文情報を確認できませんでした。', NETWORK: '決済サーバーに接続できませんでした。', PAY_PROCESS_CANCELED: 'お支払いがキャンセルされました。',
       },
@@ -53,7 +53,7 @@ window.KOKOIKO = (function () {
       noPayInfo: 'Payment information was not found.', confirmFail: 'We couldn’t confirm your payment.', network: 'A network error occurred. Please try again later.',
       errCode: 'Error code: ',
       err: {
-        INVALID_PRODUCT: 'Tour not found.', INVALID_PEOPLE: 'Please check the number of people (at least 1 adult).', INVALID_DATE: 'Please choose a date.',
+        INVALID_PRODUCT: 'Tour not found.', INVALID_PEOPLE: 'Please check the number of people (at least 1 adult, up to 9 each).', INVALID_DATE: 'Please choose a date.',
         DATE_NOT_AVAILABLE: 'This date is not available.', AMOUNT_MISMATCH: 'The payment amount is incorrect. The payment was not approved.',
         INVALID_ORDER: 'We couldn’t verify your order.', NETWORK: 'Could not connect to the payment server.', PAY_PROCESS_CANCELED: 'The payment was cancelled.',
       },
@@ -77,7 +77,7 @@ window.KOKOIKO = (function () {
       noPayInfo: '결제 정보를 찾을 수 없어요.', confirmFail: '결제를 확인하지 못했어요.', network: '통신 오류가 발생했어요. 잠시 후 다시 시도해 주세요.',
       errCode: '오류 코드: ',
       err: {
-        INVALID_PRODUCT: '투어를 찾을 수 없어요.', INVALID_PEOPLE: '인원을 확인해 주세요 (성인 1명 이상).', INVALID_DATE: '날짜를 선택해 주세요.',
+        INVALID_PRODUCT: '투어를 찾을 수 없어요.', INVALID_PEOPLE: '인원을 확인해 주세요 (성인 1명 이상, 각 9명까지).', INVALID_DATE: '날짜를 선택해 주세요.',
         DATE_NOT_AVAILABLE: '이 날짜는 신청할 수 없어요.', AMOUNT_MISMATCH: '결제 금액이 올바르지 않아요. 결제는 승인되지 않았어요.',
         INVALID_ORDER: '주문 정보를 확인하지 못했어요.', NETWORK: '결제 서버에 연결하지 못했어요.', PAY_PROCESS_CANCELED: '결제가 취소되었어요.',
       },

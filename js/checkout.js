@@ -17,6 +17,7 @@
   } catch (e) {}
 
   $('#co-name').textContent = K.productName(pid);
+  const back = document.getElementById('back-link'); if (back) back.href = pid + '.html';
   $('#co-unit').textContent = K.fmtKRW(product.price);
   $('#u-adults').textContent = K.fmtKRW(product.price);
   $('#u-children').textContent = K.fmtKRW(product.price);

@@ -22,7 +22,7 @@
     try {
       const r = await fetch('/api/confirm', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ paymentKey, orderId, amount: Number(amount) }) });
       const j = await r.json();
-      if (!r.ok) return fail(`${K.errMsg(j.code, j.message || T.confirmFail)}${j.code ? ` (${j.code})` : ''}`);
+      if (!r.ok) return fail(`${K.errMsg(j.code, T.confirmFail)}${j.code ? ` (${j.code})` : ''}`);
       result = j;
       sessionStorage.setItem(cacheKey, JSON.stringify(j));
       sessionStorage.removeItem('kokoiko_form');
