@@ -452,3 +452,54 @@ P = {
               ('22:00~22:30', '서울 도착·해산', '도로 상황에 따라 달라질 수 있어요.', None)]),
 },
 }
+
+# ---------------------------------------------------------------- photos (Wikimedia Commons, 목데이터)
+# key: (url, 파일명, 작가, 라이선스)
+_B = 'https://thumb.wikimedia.org/wikipedia/commons/thumb/'
+IMG = {
+  'jeonju1': (_B + '2/22/Jeonju_Hanok_Maeul_02.jpg/1280px-Jeonju_Hanok_Maeul_02.jpg', 'Jeonju Hanok Maeul 02.jpg', 'Bernard Gagnon', 'CC0'),
+  'bamboo6': (_B + '3/30/Bamboo_forest_in_Damyang_South_Korea_2015-05-06%286%29.jpg/1280px-Bamboo_forest_in_Damyang_South_Korea_2015-05-06%286%29.jpg', 'Bamboo forest in Damyang South Korea 2015-05-06(6).jpg', 'Mar del Este', 'CC BY-SA 4.0'),
+  'bamboo5': (_B + 'd/d7/Bamboo_forest_in_Damyang_South_Korea_2015-05-06%285%29.jpg/1280px-Bamboo_forest_in_Damyang_South_Korea_2015-05-06%285%29.jpg', 'Bamboo forest in Damyang South Korea 2015-05-06(5).jpg', 'Mar del Este', 'CC BY-SA 4.0'),
+  'meta7': (_B + 'd/d8/Damyang_Metasequoia_Road_7.JPG/1280px-Damyang_Metasequoia_Road_7.JPG', 'Damyang Metasequoia Road 7.JPG', 'hyolee2', 'CC BY-SA 3.0'),
+  'sheep': (_B + 'e/ea/Daegwallyeong_Sheep_Farm.jpg/1280px-Daegwallyeong_Sheep_Farm.jpg', 'Daegwallyeong Sheep Farm.jpg', 'Ken Eckert', 'CC BY-SA 4.0'),
+  'anmok2': (_B + '9/96/Anmok_Beach_20220430_002.jpg/1280px-Anmok_Beach_20220430_002.jpg', 'Anmok Beach 20220430 002.jpg', 'Mobius6', 'CC BY-SA 4.0'),
+  'anmok8': (_B + 'f/fb/Anmok_Beach_20220430_008.jpg/1280px-Anmok_Beach_20220430_008.jpg', 'Anmok Beach 20220430 008.jpg', 'Mobius6', 'CC BY-SA 4.0'),
+  'jdj': (_B + '4/42/Jeongdongjin_%282006%29.jpg/1280px-Jeongdongjin_%282006%29.jpg', 'Jeongdongjin (2006).jpg', 'Masterhatch', 'CC BY-SA 4.0'),
+  'dodamKE': ('https://upload.wikimedia.org/wikipedia/commons/5/59/Dodamsambong_Rocks%2C_near_Danyang%2C_Korea.jpg', 'Dodamsambong Rocks, near Danyang, Korea.jpg', 'Ken Eckert', 'CC BY-SA 4.0'),
+  'dodam3087': ('https://upload.wikimedia.org/wikipedia/commons/f/ff/Korea-Danyang-Dodamsambong_3087-07.JPG', 'Korea-Danyang-Dodamsambong 3087-07.JPG', 'Steve46814', 'CC BY-SA 3.0'),
+  'nhg': (_B + '8/8d/Danyangnamhangang.jpg/1280px-Danyangnamhangang.jpg', 'Danyangnamhangang.jpg', 'Kimhs5400', 'CC BY 4.0'),
+  'guinsa': ('https://upload.wikimedia.org/wikipedia/commons/d/d2/Korea-Danyang-Guinsa_Ocheung_Daebeoptang_2985-07.JPG', 'Korea-Danyang-Guinsa Ocheung Daebeoptang 2985-07.JPG', 'Steve46814', 'CC BY-SA 3.0'),
+  'garlic': (_B + 'e/e8/Garlic_in_Danyang_03.jpg/1280px-Garlic_in_Danyang_03.jpg', 'Garlic in Danyang 03.jpg', 'Douglas Perkins', 'CC BY 4.0'),
+  'chodang2': (_B + '7/71/Chodang_Sundubu_02_%2833422782482%29.jpg/1280px-Chodang_Sundubu_02_%2833422782482%29.jpg', 'Chodang Sundubu 02 (33422782482).jpg', 'Republic of Korea (Flickr)', 'CC BY-SA 2.0'),
+  'jeonju006': (_B + 'f/ff/Jeonju_Hanok_Village_20230408_006.jpg/1280px-Jeonju_Hanok_Village_20230408_006.jpg', 'Jeonju Hanok Village 20230408 006.jpg', 'Mobius6', 'CC BY-SA 4.0'),
+  'jeonjuP2': (_B + 'c/cd/Jeonju-_Part_II_-_Jeonju3094.jpg/1280px-Jeonju-_Part_II_-_Jeonju3094.jpg', 'Jeonju- Part II - Jeonju3094.jpg', 'lumoplank', 'CC0'),
+}
+
+# 메인 상단 슬라이드 (8장)
+SLIDES = [
+  ('jeonju1', {'ja': '全州韓屋村', 'en': 'Jeonju Hanok Village', 'ko': '전주 한옥마을'}),
+  ('bamboo6', {'ja': '潭陽・竹緑苑', 'en': 'Juknokwon, Damyang', 'ko': '담양 죽녹원'}),
+  ('meta7', {'ja': '潭陽・メタセコイア並木道', 'en': 'Metasequoia Road, Damyang', 'ko': '담양 메타세쿼이아길'}),
+  ('sheep', {'ja': '大関嶺羊牧場', 'en': 'Daegwallyeong Sheep Farm', 'ko': '대관령 양떼목장'}),
+  ('anmok2', {'ja': '江陵・安木海辺', 'en': 'Anmok Beach, Gangneung', 'ko': '강릉 안목해변'}),
+  ('jdj', {'ja': '正東津', 'en': 'Jeongdongjin', 'ko': '정동진'}),
+  ('dodamKE', {'ja': '丹陽・島潭三峰', 'en': 'Dodamsambong, Danyang', 'ko': '단양 도담삼봉'}),
+  ('nhg', {'ja': '丹陽・南漢江', 'en': 'Namhan River, Danyang', 'ko': '단양 남한강'}),
+]
+
+# 상품별 사진: hero(상세 상단) / card(카드 썸네일) / stops(일정표 사진, 순서대로. 2번째 값은 대체 사진일 때 캡션)
+P_IMG = {
+  'jeonju-damyang': {'hero': 'bamboo6', 'card': 'jeonju006', 'stops': [('bamboo5', None), ('meta7', None), ('jeonjuP2', None)]},
+  'gangneung': {'hero': 'sheep', 'card': 'anmok2', 'stops': [('sheep', None), ('chodang2', None), ('anmok8', None), ('jdj', None)]},
+  'danyang': {'hero': 'dodamKE', 'card': 'dodam3087', 'stops': [('guinsa', None),
+      ('garlic', {'ja': '丹陽名物のニンニク（イメージ）', 'en': 'Danyang garlic, a local specialty (illustrative)', 'ko': '단양 특산물 마늘 (이미지)'}),
+      ('nhg', {'ja': '丹陽・南漢江の眺め（イメージ）', 'en': 'View of the Namhan River (illustrative)', 'ko': '단양 남한강 풍경 (이미지)'}),
+      ('dodam3087', None)]},
+}
+ABOUT_IMG = 'jeonju006'
+
+CREDIT_TXT = {
+  'ja': {'link': '写真クレジット', 'h': '写真クレジット', 'p': '掲載写真はイメージです（Wikimedia Commons より、各ライセンスに基づき使用）。', 'about': 'ツアーの様子（イメージ）'},
+  'en': {'link': 'Photo credits', 'h': 'Photo credits', 'p': 'Photos are for illustration (from Wikimedia Commons, used under their respective licenses).', 'about': 'Our tours (illustrative)'},
+  'ko': {'link': '사진 출처', 'h': '사진 출처', 'p': '게재된 사진은 이미지예요 (Wikimedia Commons, 각 라이선스에 따라 사용).', 'about': '투어 모습 (이미지)'},
+}

@@ -4,7 +4,8 @@ SITE_URL 환경변수로 OGP 이미지 절대 URL 지정 (기본: 배포 주소)
 """
 import html, os, json, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import L, P, LANGS, LANG_LABEL, PREFIX, ORDER, PRICE
+from content import L, P, LANGS, LANG_LABEL, PREFIX, ORDER, PRICE, IMG, SLIDES, P_IMG, ABOUT_IMG, CREDIT_TXT
+from urllib.parse import quote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_URL = os.environ.get('SITE_URL', 'https://kokoiko-landing-chi.vercel.app').rstrip('/')
@@ -66,6 +67,7 @@ class Page:
   <a href="legal.html#cancel">{e(t["f_cancel"])}</a>
   <a href="legal.html#privacy">{e(t["f_privacy"])}</a>
   <a href="compare.html">{e(t["f_compare"])}</a>
+  <a href="legal.html#credits">{e(CREDIT_TXT[self.lang]["link"])}</a>
   <p class="company">{t["company"]}</p>
 </footer>
 '''
@@ -81,6 +83,24 @@ class Page:
 
 def ph(alt, cls=''):
     return f'<div class="ph {cls}" role="img" aria-label="{e(alt)}">{e(alt)}</div>'
+
+
+def pic(key, alt, cls='', credit=True, lazy=True):
+    url, _f, a, lic = IMG[key]
+    cr = f'<span class="credit">© {e(a)} / {e(lic)}</span>' if credit else ''
+    ld = ' loading="lazy"' if lazy else ''
+    return f'<figure class="pic {cls}"><img src="{url}" alt="{e(alt)}"{ld} decoding="async">{cr}</figure>'
+
+
+def slideshow(lang):
+    figs, dots = '', ''
+    for i, (key, cap) in enumerate(SLIDES):
+        url, _f, a, lic = IMG[key]
+        ld = '' if i == 0 else ' loading="lazy"'
+        figs += (f'<figure class="slide{" on" if i == 0 else ""}"><img src="{url}" alt="{e(cap[lang])}"{ld} decoding="async">'
+                 f'<figcaption><span class="place">📍 {e(cap[lang])}</span><span class="credit">© {e(a)} / {e(lic)}</span></figcaption></figure>')
+        dots += f'<button type="button" class="dot-btn{" on" if i == 0 else ""}" aria-label="{i + 1}/{len(SLIDES)}" data-i="{i}"></button>'
+    return f'<div class="slides" aria-roledescription="carousel">{figs}<div class="dots">{dots}</div></div>'
 
 
 def price_html(lang, price, small_cls='small muted'):
@@ -146,7 +166,7 @@ def tour_card(lang, pid):
     badge = f'<span class="tag pink">{e(t["badge"])}</span> ' if p['badge'] else ''
     pay = f'<p class="small muted">{e(t["pay_line"].format(krw(PRICE[pid])))}</p>' if t['pay_line'] else ''
     return f'''<a class="tour-card" id="card-{pid}" href="{pid}.html">
-  {ph(p["short"] + t["photo_soon"])}
+  {pic(P_IMG[pid]["card"], p["short"], credit=False)}
   <div>
     <div>{badge}<span class="tag sky">{e(t["tag_day"])}</span></div>
     <h3 style="margin-top:6px">{e(p["name"])}</h3>
@@ -162,7 +182,7 @@ def page_index(lang):
     svc = ''.join(f'<div class="svc"><div class="icon">{ic}</div><div><h3>{e(n)} <span class="tag">{e(t["soon"])}</span></h3><p class="small muted">{e(dsc)}</p></div></div>' for ic, n, dsc in t['svc'])
     return pg.head(t['idx_title'], t['idx_desc']) + pg.header(f'<a class="header-link" href="#tours">{e(t["see_tours"])}</a>') + f'''<main>
 <section class="hero">
-  {ph(t["hero_alt"], "full")}
+  {slideshow(lang)}
   <div class="hero-copy">
     <h1>{t["h1"]}</h1>
     <p>{e(t["hero_p"])}</p>
@@ -199,7 +219,7 @@ def page_index(lang):
 
 <section class="sec tint">
   <div class="sec-title"><h2>{e(t["about_t"])}</h2><span class="en">ABOUT</span></div>
-  {ph(t["about_alt"])}
+  {pic(ABOUT_IMG, CREDIT_TXT[lang]["about"])}
   <h3 style="margin-top:16px">{e(t["about_h"])}</h3>
   <p class="muted" style="margin-top:6px">{e(t["about_p"])}</p>
 </section>
@@ -214,12 +234,18 @@ def page_detail(lang, pid):
     hl = ''.join(f'<li>{e(h)}</li>' for h in p['highlights'])
     sch = p['schedule']
     first, last, middle = sch[0], sch[-1], sch[1:-1]
+    stops = iter(P_IMG[pid]['stops'])
 
     def li(s, cls=''):
         time, title, desc, photo = s
         d = f'<p class="small muted">{e(desc)}</p>' if desc else ''
-        pic = ph(photo + t['photo_soon']) if photo else ''
-        return f'<li><span class="time">{e(time)}</span><div class="body {cls}"><h4>{e(title)}</h4>{d}{pic}</div></li>'
+        im = ''
+        if photo:
+            key, sub = next(stops)
+            im = pic(key, sub[lang] if sub else photo)
+            if sub:
+                im = im.replace('</figure>', f'<span class="sub-cap">{e(sub[lang])}</span></figure>')
+        return f'<li><span class="time">{e(time)}</span><div class="body {cls}"><h4>{e(title)}</h4>{d}{im}</div></li>'
 
     big = f'<span data-jpy="{price}">{krw(price)}</span>' if lang == 'ja' else krw(price)
     pay = e(t['pay_krw'].format(krw(price))) if lang == 'ja' else e(t['pay_krw'])
@@ -229,7 +255,7 @@ def page_detail(lang, pid):
     badge = f'<span class="tag pink">{e(t["badge"])}</span>' if p['badge'] else ''
     return pg.head(f'{p["name"]} ｜ {"ここいこ" if lang == "ja" else ("KOKOIKO" if lang == "en" else "코코이코")}', p['lead']) \
         + pg.header(f'<a class="header-link" href="index.html#map">{e(t["other_area"])}</a>') + f'''<main>
-<section class="hero">{ph(p["hero"] + t["photo_soon"], "full")}</section>
+<section class="hero">{pic(P_IMG[pid]["hero"], p["hero"], "full", lazy=False)}</section>
 
 <section class="sec">
   <div class="tags">{badge}<span class="tag sky">{e(t["tag_day"])}</span></div>
@@ -361,6 +387,7 @@ def page_legal(lang):
     tk = ''.join(f'<tr><th>{e(a)}</th><td>{e(b)}</td></tr>' for a, b in t['tk_rows'])
     cp = ''.join(f'<tr><th>{e(a)}</th><td>{e(b)}</td></tr>' for a, b in t['cp_rows'])
     notes = ''.join(f'<li>{e(n)}</li>' for n in t['cp_notes'])
+    credits = ''.join(f'<li><a class="text-link" href="https://commons.wikimedia.org/wiki/File:{quote(f.replace(" ", "_"))}" target="_blank" rel="noopener">{e(f)}</a> — {e(a)} / {e(lic)}</li>' for _u, f, a, lic in IMG.values())
     return pg.head(t['legal_title'], t['legal_desc']) + pg.header(f'<a class="header-link" href="index.html">{e(t["top"])}</a>') + f'''<main>
 <section class="sec" id="tokushoho">
   <h1 style="font-size:20px;margin-bottom:14px">{e(t["tk_h"])}</h1>
@@ -375,6 +402,11 @@ def page_legal(lang):
   <h2 style="margin-bottom:14px">{e(t["f_privacy"])}</h2>
   <p class="small">{e(t["pv_p"])}</p>
   <p class="small muted" style="margin-top:8px">{e(t["pv_soon"])}</p>
+</section>
+<section class="sec" id="credits">
+  <h2 style="margin-bottom:10px">{e(CREDIT_TXT[lang]["h"])}</h2>
+  <p class="small muted" style="margin-bottom:10px">{e(CREDIT_TXT[lang]["p"])}</p>
+  <ul class="small" style="padding-left:18px;margin:0">{credits}</ul>
 </section>
 </main>
 ''' + pg.footer() + pg.tail()
