@@ -85,8 +85,17 @@ def ph(alt, cls=''):
     return f'<div class="ph {cls}" role="img" aria-label="{e(alt)}">{e(alt)}</div>'
 
 
+def sized(url, w):
+    """Wikimedia 썸네일 크기 지정 (표준 폭 500/960)"""
+    if '/thumb/' in url:
+        return url.replace('/1280px-', f'/{w}px-')
+    path = url.split('/wikipedia/commons/')[1]
+    return f'https://thumb.wikimedia.org/wikipedia/commons/thumb/{path}/{w}px-{path.split("/")[-1]}'
+
+
 def pic(key, alt, cls='', credit=True, lazy=True):
     url, _f, a, lic = IMG[key]
+    url = sized(url, 960 if 'full' in cls else 500)
     cr = f'<span class="credit">© {e(a)} / {e(lic)}</span>' if credit else ''
     ld = ' loading="lazy"' if lazy else ''
     return f'<figure class="pic {cls}"><img src="{url}" alt="{e(alt)}"{ld} decoding="async">{cr}</figure>'
@@ -96,6 +105,7 @@ def slideshow(lang):
     figs, dots = '', ''
     for i, (key, cap) in enumerate(SLIDES):
         url, _f, a, lic = IMG[key]
+        url = sized(url, 960)
         ld = '' if i == 0 else ' loading="lazy"'
         figs += (f'<figure class="slide{" on" if i == 0 else ""}"><img src="{url}" alt="{e(cap[lang])}"{ld} decoding="async">'
                  f'<figcaption><span class="place">📍 {e(cap[lang])}</span><span class="credit">© {e(a)} / {e(lic)}</span></figcaption></figure>')
